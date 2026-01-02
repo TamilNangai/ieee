@@ -318,7 +318,7 @@ section {
 .about-text p {
     font-size: 1.1rem;
     line-height: 1.8;
-   text-align:center;
+    text-align: center;
 }
 
 .about-image {
@@ -387,6 +387,11 @@ section {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 14px 24px;
+    background-color: #0088ff15;
+    border: #0099ff 4px solid;
+    border-radius: 20px;
+    padding: 15px;
+
 }
 
 .cfp-grid span {
@@ -1885,7 +1890,7 @@ footer {
 
 .swiper-wrapper {
     align-items: center;
-    
+
 }
 
 .swiper-slide {
