@@ -304,6 +304,7 @@ section {
 .about {
     background-color: var(--off-white);
     position: relative;
+    text-align: justify;
 }
 
 .about-content {
@@ -311,11 +312,13 @@ section {
     grid-template-columns: 1fr 1fr;
     gap: 60px;
     align-items: center;
+    text-align: justify;
 }
 
 .about-text p {
     font-size: 1.1rem;
     line-height: 1.8;
+   text-align:center;
 }
 
 .about-image {
