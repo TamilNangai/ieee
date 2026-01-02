@@ -813,6 +813,15 @@ section {
     border: none;
 }
 
+.map-details p {
+    margin-bottom: 0;
+    color: var(--text-light);
+    font-size: 12px;
+    margin: 10px;
+}
+
+
+
 /* Footer */
 footer {
     background: linear-gradient(135deg, var(--dark-blue), #0052a3);
@@ -1985,5 +1994,207 @@ footer {
     .swiper-slide {
         width: 200px;
         height: 240px;
+    }
+}
+
+/* Glowing Floating Submit Button */
+.floating-submit-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 1000;
+}
+
+.floating-btn {
+    padding: 15px 30px;
+    font-size: 16px;
+    min-width: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 50px;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.glow-btn {
+    background: linear-gradient(135deg, #0066ff, #0099ff);
+    color: white;
+    border: none;
+    box-shadow: 0 5px 20px rgba(0, 102, 255, 0.4);
+    animation: pulse 2s infinite;
+}
+
+.glow-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg,
+            rgba(255, 255, 255, 0) 0%,
+            rgba(255, 255, 255, 0.2) 50%,
+            rgba(255, 255, 255, 0) 100%);
+    transition: left 0.5s ease;
+}
+
+.glow-btn:hover::before {
+    left: 100%;
+}
+
+.glow-btn:hover {
+    background: linear-gradient(135deg, #0052cc, #0088ff);
+    box-shadow: 0 8px 30px rgba(0, 102, 255, 0.6),
+        0 0 30px rgba(0, 153, 255, 0.4);
+    transform: translateY(-3px) scale(1.05);
+}
+
+.glow-btn:active {
+    transform: translateY(-1px) scale(1.02);
+    box-shadow: 0 4px 15px rgba(0, 102, 255, 0.5);
+}
+
+/* Glow animation */
+@keyframes pulse {
+    0% {
+        box-shadow: 0 5px 20px rgba(0, 102, 255, 0.4),
+            0 0 0 0 rgba(0, 102, 255, 0.6);
+    }
+
+    70% {
+        box-shadow: 0 5px 20px rgba(0, 102, 255, 0.4),
+            0 0 0 15px rgba(0, 102, 255, 0);
+    }
+
+    100% {
+        box-shadow: 0 5px 20px rgba(0, 102, 255, 0.4),
+            0 0 0 0 rgba(0, 102, 255, 0);
+    }
+}
+
+/* Inner glow effect */
+.glow-btn::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    height: 70%;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 40px;
+    filter: blur(5px);
+    z-index: -1;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .floating-submit-btn {
+        bottom: 20px;
+        right: 20px;
+    }
+
+    .floating-btn {
+        padding: 14px 28px;
+        font-size: 15px;
+        gap: 8px;
+    }
+
+    .glow-btn {
+        box-shadow: 0 4px 15px rgba(0, 102, 255, 0.4);
+    }
+
+    @keyframes pulse {
+        0% {
+            box-shadow: 0 4px 15px rgba(0, 102, 255, 0.4),
+                0 0 0 0 rgba(0, 102, 255, 0.6);
+        }
+
+        70% {
+            box-shadow: 0 4px 15px rgba(0, 102, 255, 0.4),
+                0 0 0 12px rgba(0, 102, 255, 0);
+        }
+
+        100% {
+            box-shadow: 0 4px 15px rgba(0, 102, 255, 0.4),
+                0 0 0 0 rgba(0, 102, 255, 0);
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    .floating-submit-btn {
+        bottom: 15px;
+        right: 15px;
+    }
+
+    .floating-btn {
+        padding: 12px 24px;
+        font-size: 14px;
+        gap: 6px;
+    }
+
+    .floating-btn span {
+        display: inline;
+    }
+
+    .floating-btn i {
+        font-size: 16px;
+    }
+
+    @keyframes pulse {
+        0% {
+            box-shadow: 0 3px 12px rgba(0, 102, 255, 0.4),
+                0 0 0 0 rgba(0, 102, 255, 0.6);
+        }
+
+        70% {
+            box-shadow: 0 3px 12px rgba(0, 102, 255, 0.4),
+                0 0 0 10px rgba(0, 102, 255, 0);
+        }
+
+        100% {
+            box-shadow: 0 3px 12px rgba(0, 102, 255, 0.4),
+                0 0 0 0 rgba(0, 102, 255, 0);
+        }
+    }
+}
+
+@media (max-width: 400px) {
+    .floating-submit-btn {
+        bottom: 10px;
+        right: 10px;
+    }
+
+    .floating-btn {
+        padding: 10px 20px;
+        font-size: 13px;
+        gap: 5px;
+    }
+
+    .floating-btn span {
+        display: none;
+    }
+
+    .floating-btn i {
+        font-size: 18px;
+        margin-right: 0;
+    }
+
+    .glow-btn {
+        padding: 15px 15px;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+    }
+
+    .glow-btn::after {
+        width: 80%;
+        height: 80%;
     }
 }
