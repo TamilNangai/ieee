@@ -1,0 +1,1755 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ICIETSD 2026 | IEEE International Conference</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-blue: #003366;
+            --accent-blue: #0066cc;
+            --electric-blue: #0af;
+            --cyan-gradient: linear-gradient(135deg, #0066cc, #0af);
+            --green-gradient: linear-gradient(135deg, #00cc66, #0af);
+            --light-bg: #f8fafc;
+            --light-gray: #f1f5f9;
+            --dark-text: #1e293b;
+            --medium-text: #475569;
+            --light-text: #64748b;
+            --card-shadow: 0 10px 25px rgba(0, 51, 102, 0.08);
+            --card-shadow-hover: 0 15px 35px rgba(0, 51, 102, 0.12);
+            --border-radius: 16px;
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+            --header-height: 80px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-text);
+            background-color: #fff;
+            overflow-x: hidden;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 100px 0;
+        }
+
+        /* Particle Animation Background */
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+
+        /* Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 5px 20px rgba(0, 51, 102, 0.08);
+            transition: var(--transition);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: var(--header-height);
+            padding: 0 20px;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo {
+            height: 50px;
+            width: auto;
+            transition: var(--transition);
+        }
+
+        .logo-text h2 {
+            font-size: 1.5rem;
+            color: var(--primary-blue);
+        }
+
+        .logo-text span {
+            color: var(--electric-blue);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark-text);
+            font-weight: 600;
+            font-size: 1rem;
+            position: relative;
+            padding: 8px 0;
+            transition: var(--transition);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: var(--cyan-gradient);
+            transition: width 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-blue);
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .nav-links a.active {
+            color: var(--accent-blue);
+        }
+
+        .cta-button {
+            background: var(--green-gradient);
+            color: white;
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 5px 15px rgba(0, 204, 102, 0.3);
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 204, 102, 0.4);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--primary-blue);
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, rgba(0, 51, 102, 0.9) 0%, rgba(0, 102, 204, 0.8) 100%);
+            color: white;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .hero-main {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            line-height: 1.1;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeUp 0.8s forwards 0.3s;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeUp 0.8s forwards 0.5s;
+        }
+
+        .hero-highlight {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border-radius: var(--border-radius);
+            padding: 25px;
+            margin: 30px 0;
+            border-left: 5px solid var(--electric-blue);
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeUp 0.8s forwards 0.7s;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            margin-top: 30px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeUp 0.8s forwards 0.9s;
+        }
+
+        .hero-buttons .cta-button {
+            background: white;
+            color: var(--primary-blue);
+        }
+
+        .hero-buttons .cta-button.outline {
+            background: transparent;
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.7);
+        }
+
+        .hero-buttons .cta-button.outline:hover {
+            background: white;
+            color: var(--primary-blue);
+        }
+
+        .hero-sidebar {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeUp 0.8s forwards 1.1s;
+        }
+
+        .conference-dates {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .date-badge {
+            display: inline-block;
+            background: var(--green-gradient);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+        }
+
+        .venue {
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .sponsors-logos {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 25px;
+        }
+
+        .sponsor-logo {
+            height: 40px;
+            filter: brightness(0) invert(1);
+            opacity: 0.9;
+            transition: var(--transition);
+        }
+
+        .sponsor-logo:hover {
+            opacity: 1;
+            transform: translateY(-3px);
+        }
+
+        /* Section Styling */
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary-blue);
+            display: inline-block;
+            position: relative;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--green-gradient);
+            border-radius: 2px;
+        }
+
+        .section-title p {
+            max-width: 700px;
+            margin: 20px auto 0;
+            color: var(--medium-text);
+            font-size: 1.1rem;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--primary-blue);
+        }
+
+        .goal-container {
+            background: var(--light-bg);
+            border-radius: var(--border-radius);
+            padding: 40px;
+            margin-top: 40px;
+        }
+
+        .goal-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+
+        .goal-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--green-gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+
+        /* Call for Papers */
+        .topics-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .topic-item {
+            background: white;
+            padding: 20px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--card-shadow);
+            transition: var(--transition);
+            text-align: center;
+            border-left: 4px solid var(--electric-blue);
+        }
+
+        .topic-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--card-shadow-hover);
+            border-left-color: #00cc66;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 4px;
+            background: var(--green-gradient);
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            margin-bottom: 50px;
+            position: relative;
+            width: 50%;
+            padding-right: 40px;
+        }
+
+        .timeline-item:nth-child(even) {
+            margin-left: 50%;
+            padding-right: 0;
+            padding-left: 40px;
+        }
+
+        .timeline-content {
+            background: white;
+            padding: 25px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--card-shadow);
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--card-shadow-hover);
+        }
+
+        .timeline-content::before {
+            content: '';
+            position: absolute;
+            top: 30px;
+            right: -10px;
+            width: 20px;
+            height: 20px;
+            background: var(--green-gradient);
+            transform: rotate(45deg);
+            border-radius: 3px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content::before {
+            right: auto;
+            left: -10px;
+        }
+
+        .timeline-date {
+            display: inline-block;
+            padding: 8px 15px;
+            background: var(--green-gradient);
+            color: white;
+            border-radius: 50px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        /* Committee */
+        .committee-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .committee-category {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--card-shadow);
+            transition: var(--transition);
+        }
+
+        .committee-category:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--card-shadow-hover);
+        }
+
+        .category-title {
+            font-size: 1.3rem;
+            color: var(--primary-blue);
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--light-gray);
+        }
+
+        .committee-member {
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        .committee-member:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .member-name {
+            font-weight: 700;
+            color: var(--dark-text);
+            margin-bottom: 5px;
+        }
+
+        .member-title {
+            color: var(--accent-blue);
+            font-size: 0.95rem;
+            margin-bottom: 5px;
+        }
+
+        /* Speakers */
+        .speakers-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .speaker-card {
+            background: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .speaker-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--card-shadow-hover);
+        }
+
+        .speaker-img {
+            height: 250px;
+            width: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+
+        .speaker-card:hover .speaker-img {
+            transform: scale(1.05);
+        }
+
+        .speaker-info {
+            padding: 25px;
+            position: relative;
+        }
+
+        .speaker-role {
+            display: inline-block;
+            padding: 5px 15px;
+            background: var(--light-bg);
+            color: var(--accent-blue);
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .speaker-name {
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+            color: var(--primary-blue);
+        }
+
+        /* Registration */
+        .registration-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 40px;
+            box-shadow: var(--card-shadow);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+        }
+
+        .registration-table th {
+            background: var(--green-gradient);
+            color: white;
+            padding: 20px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .registration-table td {
+            padding: 20px;
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        .registration-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .registration-table tr:nth-child(even) {
+            background: var(--light-bg);
+        }
+
+        /* Contact */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+
+        .contact-info {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 40px;
+            box-shadow: var(--card-shadow);
+        }
+
+        .contact-detail {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 30px;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--light-bg);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-blue);
+            font-size: 1.2rem;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+
+        .contact-form {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 40px;
+            box-shadow: var(--card-shadow);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 18px 20px;
+            border: 2px solid var(--light-gray);
+            border-radius: var(--border-radius);
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: var(--accent-blue);
+            box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.1);
+        }
+
+        .floating-label {
+            position: absolute;
+            top: 18px;
+            left: 20px;
+            color: var(--light-text);
+            transition: var(--transition);
+            pointer-events: none;
+        }
+
+        .contact-form input:focus+.floating-label,
+        .contact-form input:not(:placeholder-shown)+.floating-label,
+        .contact-form textarea:focus+.floating-label,
+        .contact-form textarea:not(:placeholder-shown)+.floating-label {
+            top: -10px;
+            left: 15px;
+            font-size: 0.85rem;
+            background: white;
+            padding: 0 5px;
+            color: var(--accent-blue);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-blue);
+            color: white;
+            padding: 70px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .footer-logo {
+            height: 50px;
+            margin-bottom: 20px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .social-icons a:hover {
+            background: var(--electric-blue);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--green-gradient);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 1.2rem;
+            box-shadow: 0 5px 15px rgba(0, 204, 102, 0.3);
+            z-index: 999;
+            transition: var(--transition);
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 204, 102, 0.4);
+        }
+
+        /* Animations */
+        @keyframes fadeUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 1100px) {
+            .hero-main {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .hero-sidebar {
+                max-width: 500px;
+                margin: 0 auto;
+            }
+        }
+
+        @media (max-width: 992px) {
+
+            .about-content,
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline::before {
+                left: 30px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-right: 0;
+                padding-left: 70px;
+            }
+
+            .timeline-item:nth-child(even) {
+                margin-left: 0;
+                padding-left: 70px;
+            }
+
+            .timeline-content::before {
+                left: -10px;
+                right: auto;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: var(--header-height);
+                left: 0;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+                transform: translateY(-100%);
+                opacity: 0;
+                transition: var(--transition);
+                z-index: 999;
+            }
+
+            .nav-links.active {
+                transform: translateY(0);
+                opacity: 1;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero-text h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .registration-table {
+                display: block;
+                overflow-x: auto;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .topics-container {
+                grid-template-columns: 1fr;
+            }
+
+            .committee-container {
+                grid-template-columns: 1fr;
+            }
+
+            .speakers-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <nav class="container">
+            <div class="logo-container">
+                <div class="logo-text">
+                    <h2>ICIETSD<span> 2026</span></h2>
+                </div>
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#callforpapers">Call for Papers</a></li>
+                <li><a href="#committee">Committee</a></li>
+                <li><a href="#speakers">Speakers</a></li>
+                <li><a href="#dates">Dates</a></li>
+                <li><a href="#registration">Registration</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+
+            <a href="#registration" class="cta-button">Register Now</a>
+
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div id="particles-js"></div>
+        <div class="hero-content">
+            <div class="hero-main">
+                <div class="hero-text">
+                    <h1>International Conference on Innovations in Emerging Technologies for Sustainable Development
+                    </h1>
+                    <p class="hero-subtitle">Advancing sustainable technologies for a better future</p>
+
+                    <div class="hero-highlight">
+                        <p>The 2026 International Conference on Innovations in Emerging Technologies for Sustainable
+                            Development (ICIETSD) aims to bring together researchers, academicians, and industry experts
+                            to share innovations and ideas in sustainable and emerging technologies.</p>
+                    </div>
+
+                    <div class="hero-buttons">
+                        <a href="#callforpapers" class="cta-button">Submit Paper</a>
+                        <a href="#registration" class="cta-button outline">Register Now</a>
+                    </div>
+                </div>
+
+                <div class="hero-sidebar">
+                    <div class="conference-dates">
+                        <div class="date-badge">April 09 & 10, 2026</div>
+                        <p class="venue">Kings College of Engineering, Punalkulam, Near Thanjavur</p>
+                    </div>
+
+                    <div style="text-align: center; margin-top: 30px;">
+                        <h3 style="margin-bottom: 20px; color: white;">Technical Sponsors</h3>
+                        <div class="sponsors-logos">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/IEEE_logo.svg/320px-IEEE_logo.svg.png"
+                                alt="IEEE" class="sponsor-logo">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Conference -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>About the Conference</h2>
+                <p>The 2026 International Conference on Innovations in Emerging Technologies for Sustainable Development
+                    (ICIETSD) scheduled on April 9–10, 2026 aims to bring together researchers, academicians, and
+                    industry experts to share innovations and ideas in sustainable and emerging technologies.</p>
+            </div>
+
+            <div class="about-content">
+                <div class="about-text fade-in">
+                    <h3>Conference Overview</h3>
+                    <p>The event fosters cross-disciplinary collaboration in fields like computing, communication,
+                        infrastructure, energy, environment, and security to drive a more sustainable future.</p>
+
+                    <div class="goal-container fade-in">
+                        <h3 style="margin-bottom: 30px;">Our Goals</h3>
+
+                        <div class="goal-item">
+                            <div class="goal-icon">
+                                <i class="fas fa-lightbulb"></i>
+                            </div>
+                            <div>
+                                <h4>Encourage Innovation</h4>
+                                <p>Promote research in cutting-edge areas like AI, Blockchain, IoT, and 5G</p>
+                            </div>
+                        </div>
+
+                        <div class="goal-item">
+                            <div class="goal-icon">
+                                <i class="fas fa-leaf"></i>
+                            </div>
+                            <div>
+                                <h4>Support Sustainability</h4>
+                                <p>Foster eco-friendly and low-carbon technology development</p>
+                            </div>
+                        </div>
+
+                        <div class="goal-item">
+                            <div class="goal-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <div>
+                                <h4>Advance Security</h4>
+                                <p>Improve cybersecurity, digitalisation, and smart systems</p>
+                            </div>
+                        </div>
+
+                        <div class="goal-item">
+                            <div class="goal-icon">
+                                <i class="fas fa-handshake"></i>
+                            </div>
+                            <div>
+                                <h4>Enable Collaboration</h4>
+                                <p>Connect academia, industry, and research communities</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about-text fade-in">
+                    <h3>Conference Focus Areas</h3>
+                    <p>The conference focuses on sustainable solutions in infrastructure, energy, and manufacturing
+                        while addressing global challenges across sectors.</p>
+
+                    <div style="margin-top: 30px;">
+                        <div style="display: flex; align-items: center; margin-bottom: 20px;">
+                            <i class="fas fa-bolt"
+                                style="color: var(--electric-blue); font-size: 1.5rem; margin-right: 15px;"></i>
+                            <div>
+                                <h4>Renewable Energy Technologies</h4>
+                                <p>Innovations in solar, wind, and sustainable power systems</p>
+                            </div>
+                        </div>
+
+                        <div style="display: flex; align-items: center; margin-bottom: 20px;">
+                            <i class="fas fa-robot"
+                                style="color: var(--electric-blue); font-size: 1.5rem; margin-right: 15px;"></i>
+                            <div>
+                                <h4>AI & Smart Systems</h4>
+                                <p>Artificial intelligence applications for sustainable development</p>
+                            </div>
+                        </div>
+
+                        <div style="display: flex; align-items: center; margin-bottom: 20px;">
+                            <i class="fas fa-network-wired"
+                                style="color: var(--electric-blue); font-size: 1.5rem; margin-right: 15px;"></i>
+                            <div>
+                                <h4>IoT & 5G Networks</h4>
+                                <p>Connected technologies for smart cities and infrastructure</p>
+                            </div>
+                        </div>
+
+                        <div style="display: flex; align-items: center;">
+                            <i class="fas fa-industry"
+                                style="color: var(--electric-blue); font-size: 1.5rem; margin-right: 15px;"></i>
+                            <div>
+                                <h4>Sustainable Manufacturing</h4>
+                                <p>Green production processes and circular economy</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call for Papers -->
+    <section id="callforpapers" class="papers-section" style="background-color: var(--light-bg);">
+        <div class="container">
+            <div class="section-title">
+                <h2>Call for Papers</h2>
+                <p>Submit your original research work under the following innovative and sustainable technology domains
+                    (Not Limited to)</p>
+            </div>
+
+            <div class="topics-container">
+                <div class="topic-item fade-in">Artificial Intelligence</div>
+                <div class="topic-item fade-in">Big Data</div>
+                <div class="topic-item fade-in">Blockchain</div>
+                <div class="topic-item fade-in">Clean Technologies</div>
+                <div class="topic-item fade-in">Climate Change Mitigation</div>
+                <div class="topic-item fade-in">Cyber Security</div>
+                <div class="topic-item fade-in">Cyber-Physical Systems</div>
+                <div class="topic-item fade-in">Data Mining</div>
+                <div class="topic-item fade-in">Digitalisation and Industry</div>
+                <div class="topic-item fade-in">Eco-friendly Design</div>
+                <div class="topic-item fade-in">Electric Vehicle</div>
+                <div class="topic-item fade-in">Energy Efficiency</div>
+                <div class="topic-item fade-in">Environmental Innovation</div>
+                <div class="topic-item fade-in">FinTech</div>
+                <div class="topic-item fade-in">Green Technology</div>
+                <div class="topic-item fade-in">IoT & 5G Networks</div>
+                <div class="topic-item fade-in">Low-Carbon Technologies</div>
+                <div class="topic-item fade-in">Network Security</div>
+                <div class="topic-item fade-in">Renewable Energy</div>
+                <div class="topic-item fade-in">Resource Management</div>
+                <div class="topic-item fade-in">Robotics</div>
+                <div class="topic-item fade-in">Smart Grids</div>
+                <div class="topic-item fade-in">Sustainable Cities</div>
+                <div class="topic-item fade-in">Sustainable Engineering</div>
+                <div class="topic-item fade-in">Sustainable Infrastructure</div>
+                <div class="topic-item fade-in">Sustainable Manufacturing</div>
+            </div>
+
+            <div style="text-align: center; margin-top: 50px;">
+                <a href="#" class="cta-button">Submit Your Paper Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Committee -->
+    <section id="committee" class="committee-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Organizing Committee</h2>
+                <p>Meet the team organizing ICIETSD 2026</p>
+            </div>
+
+            <div class="committee-container">
+                <div class="committee-category fade-in">
+                    <h3 class="category-title">Leadership</h3>
+
+                    <div class="committee-member">
+                        <div class="member-name">Dr. R. Rajendran, Ph.D.</div>
+                        <div class="member-title">Secretary - RET</div>
+                        <div class="member-role">Chief Patron</div>
+                    </div>
+
+                    <div class="committee-member">
+                        <div class="member-name">Dr. J. Arputha Vijaya Selvi, M.E., Ph.D.</div>
+                        <div class="member-title">Principal</div>
+                        <div class="member-role">Patron & Conference Chair</div>
+                    </div>
+
+                    <div class="committee-member">
+                        <div class="member-name">Dr. S. Sivakumar, M.Tech., Ph.D.</div>
+                        <div class="member-title">Vice Principal</div>
+                        <div class="member-role">Editorial Chair</div>
+                    </div>
+
+                    <div class="committee-member">
+                        <div class="member-name">Dr. P. P. Shantharaman, M.E., Ph.D.</div>
+                        <div class="member-title">Head / CPR</div>
+                        <div class="member-role">Convener</div>
+                    </div>
+                </div>
+
+                <div class="committee-category fade-in">
+                    <h3 class="category-title">Committee Members</h3>
+
+                    <div class="committee-member">
+                        <div class="member-name">Dr. R. Saravanan, M.E., Ph.D.</div>
+                        <div class="member-title">Head, Dept. of Civil Engineering</div>
+                        <div class="member-role">Conference Treasurer</div>
+                    </div>
+
+                    <div class="committee-member">
+                        <div class="member-name">Dr. S. M. Uma, M.E., Ph.D.</div>
+                        <div class="member-title">Head, Dept. of CSE</div>
+                        <div class="member-role">Publication Chair</div>
+                    </div>
+
+                    <div class="committee-member">
+                        <div class="member-name">Dr. K. Abhirami, M.E., Ph.D.</div>
+                        <div class="member-title">Head / Academic Courses</div>
+                        <div class="member-role">Publication Chair</div>
+                    </div>
+                </div>
+
+                <div class="committee-category fade-in">
+                    <h3 class="category-title">Programme Committee</h3>
+
+                    <div class="committee-member">
+                        <div class="member-name">Mrs. N. Mangaiyarkarasi, M.E., (Ph.D.)</div>
+                        <div class="member-title">Head, Dept. of ECE</div>
+                    </div>
+
+                    <div class="committee-member">
+                        <div class="member-name">Mr. R. Sundaramoorthi, M.E., (Ph.D.)</div>
+                        <div class="member-title">Head, Dept. of EEE</div>
+                    </div>
+
+                    <div class="committee-member">
+                        <div class="member-name">Dr. T. Pushparaj, M.E., Ph.D.</div>
+                        <div class="member-title">Head, Dept. of MECH</div>
+                    </div>
+
+                    <div class="committee-member">
+                        <div class="member-name">Dr. G. Suganya, M.E., Ph.D.</div>
+                        <div class="member-title">Assistant Professor, Dept. of EEE</div>
+                    </div>
+                </div>
+
+                <div class="committee-category fade-in">
+                    <h3 class="category-title">IEEE Madras Section Advisory Committee</h3>
+
+                    <div class="committee-member">
+                        <div class="member-name">Dr. P. Sakthivel</div>
+                        <div class="member-title">Chairman, IEEE Madras Section</div>
+                    </div>
+
+                    <div class="committee-member">
+                        <div class="member-name">Dr. S. Radha</div>
+                        <div class="member-title">Secretary, IEEE Madras Section</div>
+                    </div>
+
+                    <div class="committee-member">
+                        <div class="member-name">Dr. S. Brindha</div>
+                        <div class="member-title">Treasurer, IEEE Madras Section</div>
+                    </div>
+
+                    <div class="committee-member">
+                        <div class="member-name">Dr. V. Nagarajan</div>
+                        <div class="member-title">Conference Committee Member</div>
+                    </div>
+
+                    <div class="committee-member">
+                        <div class="member-name">Dr. T. Shanmuganatham</div>
+                        <div class="member-title">Vice Chairman Academics</div>
+                    </div>
+
+                    <div class="committee-member">
+                        <div class="member-name">Dr. Ramalatha Marimuthu</div>
+                        <div class="member-title">Vice Chairman Industry</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Speakers -->
+    <section id="speakers" class="speakers-section" style="background-color: var(--light-bg);">
+        <div class="container">
+            <div class="section-title">
+                <h2>Speakers</h2>
+                <p>Learn from leading experts in emerging technologies and sustainable development</p>
+            </div>
+
+            <div class="speakers-container">
+                <div class="speaker-card fade-in">
+                    <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Mei Lin Fung" class="speaker-img">
+                    <div class="speaker-info">
+                        <div class="speaker-role">Chief Guest</div>
+                        <h3 class="speaker-name">Mei Lin Fung</h3>
+                        <p class="speaker-title">Chair, IEEE Sustainability Technical Committee, SSIT</p>
+                    </div>
+                </div>
+
+                <div class="speaker-card fade-in">
+                    <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Dr. P. Sakthivel"
+                        class="speaker-img">
+                    <div class="speaker-info">
+                        <div class="speaker-role">Guest of Honour</div>
+                        <h3 class="speaker-name">Dr. P. Sakthivel</h3>
+                        <p class="speaker-title">Chairman, IEEE Madras Section</p>
+                    </div>
+                </div>
+
+                <div class="speaker-card fade-in">
+                    <img src="https://randomuser.me/api/portraits/men/55.jpg" alt="Dr. N. Sivakumaran"
+                        class="speaker-img">
+                    <div class="speaker-info">
+                        <div class="speaker-role">Keynote Speaker</div>
+                        <h3 class="speaker-name">Dr. N. Sivakumaran</h3>
+                        <p class="speaker-title">Professor, Department of ICE, National Institute of Technology,
+                            Tiruchirappalli</p>
+                    </div>
+                </div>
+
+                <div class="speaker-card fade-in">
+                    <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Dr. V. Nagarajan"
+                        class="speaker-img">
+                    <div class="speaker-info">
+                        <div class="speaker-role">Keynote Speaker</div>
+                        <h3 class="speaker-name">Dr. V. Nagarajan</h3>
+                        <p class="speaker-title">Professor, Department of Electronics Engineering, Pondicherry
+                            University</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Important Dates -->
+    <section id="dates" class="dates-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Important Dates</h2>
+                <p>Mark your calendars for these important deadlines</p>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-item fade-in">
+                    <div class="timeline-content">
+                        <span class="timeline-date">February 15, 2026</span>
+                        <h3>Paper Submission Deadline</h3>
+                        <p>Last date for paper submission through the conference portal.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item fade-in">
+                    <div class="timeline-content">
+                        <span class="timeline-date">February 28, 2026</span>
+                        <h3>Acceptance Notification</h3>
+                        <p>Authors will be notified about paper acceptance decisions.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item fade-in">
+                    <div class="timeline-content">
+                        <span class="timeline-date">March 10, 2026</span>
+                        <h3>Early Bird Registration</h3>
+                        <p>Register early to avail discounted registration fees.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item fade-in">
+                    <div class="timeline-content">
+                        <span class="timeline-date">March 15, 2026</span>
+                        <h3>Camera Ready Copy</h3>
+                        <p>Final versions of accepted papers must be submitted.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item fade-in">
+                    <div class="timeline-content">
+                        <span class="timeline-date">April 09-10, 2026</span>
+                        <h3>Conference Dates</h3>
+                        <p>Two days of technical sessions, keynote speeches, and networking.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Registration -->
+    <section id="registration" class="registration-section" style="background-color: var(--light-bg);">
+        <div class="container">
+            <div class="section-title">
+                <h2>Registration Fee</h2>
+                <p>Choose the appropriate registration category</p>
+            </div>
+
+            <div class="fade-in">
+                <table class="registration-table">
+                    <thead>
+                        <tr>
+                            <th>Category</th>
+                            <th>IEEE Member</th>
+                            <th>Non IEEE Member</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>UG / PG / Research Scholar / Faculty</td>
+                            <td>Rs. 6000 /-</td>
+                            <td>Rs. 7000 /-</td>
+                        </tr>
+                        <tr>
+                            <td>Industry</td>
+                            <td>Rs. 7000 /-</td>
+                            <td>Rs. 8000 /-</td>
+                        </tr>
+                        <tr>
+                            <td>Abroad</td>
+                            <td>$120</td>
+                            <td>$150</td>
+                        </tr>
+                        <tr>
+                            <td>Listeners</td>
+                            <td>Rs. 1000 /-</td>
+                            <td>Rs. 1200 /-</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div style="text-align: center; margin-top: 50px;">
+                <a href="#" class="cta-button">Register Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Us</h2>
+                <p>Get in touch with the conference organizers</p>
+            </div>
+
+            <div class="contact-container">
+                <div class="contact-info fade-in">
+                    <h3>Address for Communication</h3>
+
+                    <div class="contact-detail">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h4>Location</h4>
+                            <p>The Convener – ICIETSD<br>
+                                Kings College of Engineering (Autonomous)<br>
+                                Punalkulam, Near Thanjavur,<br>
+                                Pudukkottai Dt. – 613 303,<br>
+                                Tamil Nadu, India.<br>
+                                www.kingsengg.edu.in</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-detail">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h4>Email</h4>
+                            <p>kceic4@gmail.com</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-detail">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <h4>Phone</h4>
+                            <p>+91 99448 76644<br>+91 99947 18168</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-detail">
+                        <div class="contact-icon">
+                            <i class="fas fa-university"></i>
+                        </div>
+                        <div>
+                            <h4>Conference Venue</h4>
+                            <p>Kings College of Engineering, Punalkulam</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form fade-in">
+                    <h3 style="margin-bottom: 30px;">Send us a Message</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" id="name" placeholder=" " required>
+                            <label for="name" class="floating-label">Full Name</label>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="email" id="email" placeholder=" " required>
+                            <label for="email" class="floating-label">Email Address</label>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="text" id="subject" placeholder=" " required>
+                            <label for="subject" class="floating-label">Subject</label>
+                        </div>
+
+                        <div class="form-group">
+                            <textarea id="message" rows="5" placeholder=" " required></textarea>
+                            <label for="message" class="floating-label">Your Message</label>
+                        </div>
+
+                        <button type="submit" class="cta-button" style="width: 100%;">Send Message</button>
+                    </form>
+                </div>
+            </div>
+
+            <div
+                style="margin-top: 60px; padding: 30px; background: var(--light-bg); border-radius: var(--border-radius);">
+                <p style="text-align: center; color: var(--medium-text);">
+                    <i class="fas fa-info-circle" style="color: var(--accent-blue); margin-right: 10px;"></i>
+                    The Microsoft CMT service was used for managing the peer-reviewing process for this conference. This
+                    service was provided for free by Microsoft and they bore all expenses, including costs for Azure
+                    cloud services as well as for software development and support.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <div class="logo-text">
+                        <h2 style="color: white;">ICIETSD<span style="color: var(--electric-blue);"> 2026</span></h2>
+                    </div>
+                    <p style="margin: 20px 0; color: rgba(255, 255, 255, 0.8);">International Conference on Innovations
+                        in Emerging Technologies for Sustainable Development</p>
+                    <p style="color: rgba(255, 255, 255, 0.8);">April 09 & 10, 2026 | Kings College of Engineering</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h3 style="color: white; margin-bottom: 20px;">Quick Links</h3>
+                    <ul style="list-style: none;">
+                        <li><a href="#home"
+                                style="color: rgba(255, 255, 255, 0.8); text-decoration: none; display: block; margin-bottom: 10px;">Home</a>
+                        </li>
+                        <li><a href="#about"
+                                style="color: rgba(255, 255, 255, 0.8); text-decoration: none; display: block; margin-bottom: 10px;">About
+                                Conference</a></li>
+                        <li><a href="#callforpapers"
+                                style="color: rgba(255, 255, 255, 0.8); text-decoration: none; display: block; margin-bottom: 10px;">Call
+                                for Papers</a></li>
+                        <li><a href="#speakers"
+                                style="color: rgba(255, 255, 255, 0.8); text-decoration: none; display: block; margin-bottom: 10px;">Speakers</a>
+                        </li>
+                        <li><a href="#registration"
+                                style="color: rgba(255, 255, 255, 0.8); text-decoration: none; display: block; margin-bottom: 10px;">Registration</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h3 style="color: white; margin-bottom: 20px;">Technical Sponsors</h3>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/IEEE_logo.svg/320px-IEEE_logo.svg.png"
+                        alt="IEEE Logo" style="height: 60px; margin-bottom: 20px; filter: brightness(0) invert(1);">
+                    <p style="color: rgba(255, 255, 255, 0.8);">IEEE Madras Section</p>
+                </div>
+            </div>
+
+            <div class="copyright">
+                <p>Copyright © 2025 Kings College of Engineering. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#home" class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navLinks.classList.contains('active')
+                ? '<i class="fas fa-times"></i>'
+                : '<i class="fas fa-bars"></i>';
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+
+        // Active link highlighting on scroll
+        const sections = document.querySelectorAll('section');
+        const navItems = document.querySelectorAll('.nav-links a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navItems.forEach(item => {
+                item.classList.remove('active');
+                if (item.getAttribute('href').substring(1) === current) {
+                    item.classList.add('active');
+                }
+            });
+        });
+
+        // Scroll animations
+        const fadeElements = document.querySelectorAll('.fade-in');
+
+        const fadeInOnScroll = () => {
+            fadeElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('visible');
+                }
+            });
+        };
+
+        // Initialize fade in on load
+        window.addEventListener('load', fadeInOnScroll);
+        window.addEventListener('scroll', fadeInOnScroll);
+
+        // Back to top button
+        const backToTopButton = document.getElementById('backToTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopButton.classList.add('visible');
+            } else {
+                backToTopButton.classList.remove('visible');
+            }
+        });
+
+        // Particle.js background
+        document.addEventListener('DOMContentLoaded', function () {
+            particlesJS("particles-js", {
+                particles: {
+                    number: { value: 80, density: { enable: true, value_area: 800 } },
+                    color: { value: "#ffffff" },
+                    shape: { type: "circle" },
+                    opacity: { value: 0.3, random: true },
+                    size: { value: 3, random: true },
+                    line_linked: {
+                        enable: true,
+                        distance: 150,
+                        color: "#ffffff",
+                        opacity: 0.1,
+                        width: 1
+                    },
+                    move: {
+                        enable: true,
+                        speed: 2,
+                        direction: "none",
+                        random: true,
+                        straight: false,
+                        out_mode: "out",
+                        bounce: false
+                    }
+                },
+                interactivity: {
+                    detect_on: "canvas",
+                    events: {
+                        onhover: { enable: true, mode: "repulse" },
+                        onclick: { enable: true, mode: "push" },
+                        resize: true
+                    }
+                },
+                retina_detect: true
+            });
+        });
+
+        // Form submission
+        const contactForm = document.getElementById('contactForm');
+
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            // In a real implementation, you would send the form data to a server
+            // For this demo, we'll just show an alert
+            alert('Thank you for your message! We will get back to you soon.');
+            contactForm.reset();
+
+            // Reset floating labels
+            document.querySelectorAll('.floating-label').forEach(label => {
+                label.style.top = '18px';
+                label.style.fontSize = '1rem';
+                label.style.color = 'var(--light-text)';
+            });
+        });
+
+        // Form floating label animation
+        document.querySelectorAll('input, textarea').forEach(input => {
+            input.addEventListener('focus', () => {
+                const label = input.nextElementSibling;
+                label.style.top = '-10px';
+                label.style.fontSize = '0.85rem';
+                label.style.color = 'var(--accent-blue)';
+            });
+
+            input.addEventListener('blur', () => {
+                const label = input.nextElementSibling;
+                if (!input.value) {
+                    label.style.top = '18px';
+                    label.style.fontSize = '1rem';
+                    label.style.color = 'var(--light-text)';
+                }
+            });
+        });
+
+        // Timeline animation on scroll
+        const timelineItems = document.querySelectorAll('.timeline-item');
+
+        const timelineAnimation = () => {
+            timelineItems.forEach(item => {
+                const itemTop = item.getBoundingClientRect().top;
+                if (itemTop < window.innerHeight - 100) {
+                    item.style.opacity = '1';
+                    item.style.transform = 'translateX(0)';
+                }
+            });
+        };
+
+        window.addEventListener('scroll', timelineAnimation);
+        window.addEventListener('load', timelineAnimation);
+    </script>
+</body>
+
+</html>

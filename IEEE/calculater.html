@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Simple Calculator</title>
+    <style>
+        body {
+  font-family: Arial, sans-serif;
+  background: #f2f2f2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.calculator {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  width: 260px;
+}
+
+input {
+  width: 100%;
+  padding: 8px;
+  margin: 6px 0;
+}
+
+.buttons button {
+  width: 45px;
+  height: 40px;
+  margin: 5px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+    </style>
+</head>
+
+<body>
+
+    <div class="calculator">
+        <h2>Simple Calculator</h2>
+
+        <input type="number" id="num1" placeholder="Enter first number">
+        <input type="number" id="num2" placeholder="Enter second number">
+
+        <div class="buttons">
+            <button onclick=""></button>
+            <button onclick="add()">+</button>
+            <button onclick="subtract()">-</button>
+            <button onclick="multiply()">×</button>
+            <button onclick="divide()">÷</button>
+        </div>
+
+        <h3>Result: <span id="result">0</span></h3>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+<script>
+
+    function getValues() {
+        const num1 = parseFloat(document.getElementById("num1").value);
+        const num2 = parseFloat(document.getElementById("num2").value);
+        return { num1, num2 };
+    }
+
+    function add() {
+        const { num1, num2 } = getValues();
+        document.getElementById("result").innerText = num1 + num2;
+    }
+
+    function subtract() {
+        const { num1, num2 } = getValues();
+        document.getElementById("result").innerText = num1 - num2;
+    }
+
+    function multiply() {
+        const { num1, num2 } = getValues();
+        document.getElementById("result").innerText = num1 * num2;
+    }
+
+    function divide() {
+        const { num1, num2 } = getValues();
+        if (num2 === 0) {
+            document.getElementById("result").innerText = "Arithmatic Error";
+        } else {
+            document.getElementById("result").innerText = num1 / num2;
+        }
+    }
+</script>
+</html>

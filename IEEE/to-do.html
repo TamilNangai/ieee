@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do App</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            background: url(https://tse3.mm.bing.net/th/id/OIP.1qnoITk-3fIPeoqkf4-bhQHaEJ?w=1200&h=673&rs=1&pid=ImgDetMain&o=7&rm=3) no-repeat center/cover;
+            display: flex;
+            align-items:center ;
+            justify-content: center;
+            width: 100%;
+            min-height: 100vh;        }
+        main{
+            padding: 20px;
+            background-color: rgba(122, 178, 227, 0.389);
+            backdrop-filter: blur(40px);
+            width: fit-content;
+            height: fit-content;
+            /* border:1px  solid white ; */
+            border-radius: 25px;
+            color: rgb(0, 94, 194);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items:center ;
+            justify-content: center;
+            transition: all 0.2s ease;
+             box-shadow:10px 15px 30px #1a283f;
+        }
+        main:hover{
+            transform: scale(1.01) translate(-0.2rem);
+        }
+        #input-box{
+            color: rgb(0, 0, 0);
+            border: 1px solid rgb(0, 123, 255);
+            border-radius: 20px;
+             width: 170px;
+            height:30px;
+            padding:0px 10px;
+           background-color: rgba(255, 255, 255, 0.43);
+            backdrop-filter: blur(40px);
+            font-size: 15px;
+            appearance: none;
+            transition: all 0.2s ease;
+
+            
+        }
+         #input-box::placeholder{
+            color: rgb(64, 140, 234);
+            font-size: 15px;
+         }
+        #input-box:focus{
+            border: 1px solid rgb(0, 123, 255);
+            transform: scale(1.01) translate(-0.2rem);
+            appearance: none;
+            outline: none;
+             box-shadow:0px 0px 10px #008cff;
+        }
+        #addbtn{
+            appearance: none;
+            border: none;
+            border-radius: 20px;
+            background-color: rgb(54, 151, 235);
+            color: rgb(255, 255, 255);
+            width: 30px;
+            height: 30px;
+            text-align: center;
+            font-size: x-large;
+            margin-left: 10px;
+            transition: all 0.2s ease;
+        }
+        #addbtn:hover{
+            box-shadow:0px 0px 10px #008cff;
+            transform: scale(1.01) translate(-0.2rem);
+        }
+        #task{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        ul>li{
+            text-decoration: none;
+            list-style: none;
+             color: rgb(0, 0, 0);
+            border: 1px solid rgb(0, 123, 255);
+            border-radius: 20px;
+             width: 200px;
+            height:30px;
+            padding:5px 10px;
+           background-color: rgba(255, 255, 255, 0.43);
+            backdrop-filter: blur(40px);
+            font-size: 15px;
+            appearance: none;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 5px;
+        }
+        ul>li>button{
+             appearance: none;
+            border: none;
+            border-radius: 20px;
+            background-color: rgb(54, 151, 235);
+            color: rgb(255, 255, 255);
+            width: 60px;
+            height: 30px;
+            text-align: center;
+            font-size: 10px;
+            margin-left: 10px;
+            transition: all 0.2s ease;
+        }
+        ul{
+             display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            padding-left: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <h1>✓ To-Do</h1>
+        <div id="task">
+            <input type="text" name="" id="input-box" placeholder="Enter a Task ..." autocomplete="off" >
+            <button type="submit" id="addbtn">+</button>
+        </div>
+        <ul id="task-container"></ul>
+    </main>
+</body>
+<script>
+    const taskinput=document.getElementById("input-box");
+    const addbtn=document.getElementById("addbtn");
+    const taskcontainer=document.getElementById("task-container");
+    addbtn.addEventListener("click",()=>{
+        const tasktext=taskinput.value;
+        if(tasktext==="")return;
+        const li=document.createElement("li");
+        const delbtn=document.createElement("button");
+        li.textContent=tasktext;
+        delbtn.textContent="Delete";
+        delbtn.addEventListener("click",()=>{
+            li.remove();
+        })
+        li.appendChild(delbtn)
+        taskcontainer.appendChild(li);
+        taskinput.value="";
+
+    })
+</script>
+</html>
